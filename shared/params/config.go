@@ -118,6 +118,8 @@ type BeaconChainConfig struct {
 	EpochsPerSyncCommitteePeriod uint64 `yaml:"EPOCHS_PER_SYNC_COMMITTEE_PERIOD"`      // EpochsPerSyncCommitteePeriod defines the epochs per sync committee period.
 	SyncCommitteeSize            uint64 `yaml:"SYNC_COMMITTEE_SIZE"`                   // SyncCommitteeSize defines the size of a sync committee.
 	SyncCommitteeAggregateSize   uint64 `yaml:"SYNC_COMMITTEE_PUBKEY_AGGREGATES_SIZE"` // SyncCommitteeAggregateSize defines the size of sync committee aggregate.
+	MinSyncCommitteeParticipants uint64 `yaml:MIN_SYNC_COMMITTEE_PARTICIPANTS`         // MinSyncCommitteeParticipants defines the size of min sync committee participants.
+	LightClientUpdateTimeOut     uint64 `yaml:LIGHT_CLIENT_UPDATE_TIMEOUT`             // LightClientUpdateTimeOut defines how many slots before light client times out.
 
 	// Weak subjectivity values.
 	SafetyDecay uint64 // SafetyDecay is defined as the loss in the 1/3 consensus safety margin of the casper FFG mechanism.

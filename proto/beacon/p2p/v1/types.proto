@@ -114,3 +114,26 @@ message SyncCommittee {
   repeated bytes pubkeys = 1  [(gogoproto.moretags) = "ssz-size:\"1024,48\""];
   repeated bytes pubkey_aggregates = 2  [(gogoproto.moretags) = "ssz-size:\"16,48\""];
 }
+
+message LightClientSnapShot {
+  ethereum.eth.v1alpha1.BeaconBlockHeader header = 1;
+  SyncCommittee current_sync_committee = 2;
+  SyncCommittee next_sync_committee = 3;
+}
+
+message LightClientUpdate {
+  ethereum.eth.v1alpha1.BeaconBlockHeader header = 1;
+  SyncCommittee next_sync_committee = 2;
+  repeated bytes next_sync_committee_branch = 3 [(gogoproto.moretags) = "ssz-size:\"5,32\""];
+  ethereum.eth.v1alpha1.BeaconBlockHeader finality_header = 4;
+  repeated bytes finality_branch = 5 [(gogoproto.moretags) = "ssz-size:\"5,32\""];
+  // TODO: Change this to 1024.
+  bytes sync_committee_bits = 6 [(gogoproto.moretags) = "ssz-size:\"8\"", (gogoproto.casttype) = "github.com/prysmaticlabs/go-bitfield.Bitvector64"];
+  bytes sync_committee_signature = 7 [(gogoproto.moretags) = "ssz-size:\"96\""];
+  Fork fork = 8;
+}
+
+message LightClientStore {
+  LightClientSnapShot snapshot = 1;
+  repeated LightClientUpdate valid_updates = 2;
+}

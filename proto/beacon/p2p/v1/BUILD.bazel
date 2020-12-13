@@ -35,6 +35,8 @@ ssz_gen_marshal(
         "BeaconState",
         "SigningData",
         "SyncCommittee",
+        "LightClientSnapShot",
+        "LightClientUpdate",
     ],
 )
 

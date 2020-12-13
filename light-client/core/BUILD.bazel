@@ -1,0 +1,20 @@
+load("@prysm//tools/go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "service.go",
+        "update.go",
+    ],
+    importpath = "github.com/prysmaticlabs/prysm/light-client/core",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//beacon-chain/core/helpers:go_default_library",
+        "//proto/beacon/p2p/v1:go_default_library",
+        "//shared/bls:go_default_library",
+        "//shared/params:go_default_library",
+        "@com_github_gogo_protobuf//proto:go_default_library",
+        "@com_github_prysmaticlabs_ethereumapis//eth/v1alpha1:go_default_library",
+        "@com_github_wealdtech_go_bytesutil//:go_default_library",
+    ],
+)

@@ -165,6 +165,8 @@ var mainnetBeaconConfig = &BeaconChainConfig{
 	EpochsPerSyncCommitteePeriod: 256,
 	SyncCommitteeSize:            1024,
 	SyncCommitteeAggregateSize:   16,
+	MinSyncCommitteeParticipants: 1,
+	LightClientUpdateTimeOut:     8192,
 
 	// Fork related values.
 	GenesisForkVersion:  []byte{0, 0, 0, 0},
